@@ -5,7 +5,7 @@
   --color-smoke-30: #fafafa;
   --color-smoke-50: #f5f5f5;
   --color-smoke-70: #f0f0f0;
-  --color-smoke-90: #e1e1e1;
+  --color-smoke-90: #e0e0e0;
   --color-gray-10: #c1c1c1;
   --color-gray-30: #9c9c9c;
   --color-gray-40: #8e8e8e;
@@ -18,21 +18,25 @@
   --color-jet-80: #191919;
   --color-black: #000;
   --aj-test: #ff00c3;
-  --apstra-side-bar: #4a4a4a;
-  --apstra-top-bar: #f5f5f5;
-  --apstra-font-color: #ffffffe6;
+  --apstra-side-bar: #ffffff;
+  --apstra-top-bar: #e5f4f1;
+  --apstra-docs-font-color: #4d5259;
   --button-color: #0096a4;
   --apstra-top-nav-font-color: #424242;
+
+  --apstra-docs-heading-font-color: #000000;
+  --apstra-docs-body-font-color: #4d5259;
+
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
   --body-font-size--desktop: 1.125em; /* 18px */
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
-  --body-font-color: var( --apstra-font-color);
+  --body-font-color: var( --apstra-docs-body-font-color);
   --body-font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
   --body-font-weight-bold: 400;
-  --monospace-font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+  --monospace-font-family: Monospace;
   --monospace-font-weight-bold: 400;
   /* base */
   --body-background: var(--color-white);
@@ -79,9 +83,9 @@
   --warning-color: #e18114;
   --warning-on-color: var(--color-white);
   /* doc */
-  --doc-font-color: var(--color-jet-50);
+  --doc-font-color: var( --apstra-docs-body-font-color);
   --doc-font-size: inherit;
-  --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
+  --doc-font-size--desktop: calc(18 / var(--rem-base) * 1rem);
   --doc-line-height: 1.6;
   --doc-margin: 0 auto;
   --doc-margin--desktop: 0 2rem;
@@ -128,8 +132,8 @@
   --footer-font-color: var(--color-gray-70);
   --footer-link-font-color: var(--color-jet-80);
   /* dimensions and positioning */
-  --navbar-height: calc(63 / var(--rem-base) * 1rem);
-  --toolbar-height: calc(45 / var(--rem-base) * 1rem);
+  --navbar-height: calc(100 / var(--rem-base) * 1rem);
+  --toolbar-height: calc(60 / var(--rem-base) * 1rem);
   --drawer-height: var(--toolbar-height);
   --body-top: var(--navbar-height);
   --body-min-height: calc(100vh - var(--body-top));

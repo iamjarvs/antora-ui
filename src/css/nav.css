@@ -58,6 +58,8 @@
   display: flex;
   flex-direction: column;
   height: inherit;
+  /* This is the border (right hand side) on nav panel */
+  border-right: 2px solid var(--color-smoke-90);
 }
 
 html.is-clipped--nav {
@@ -93,11 +95,11 @@ html.is-clipped--nav {
 }
 
 .nav-menu h3.title {
-  color: var(--nav-heading-font-color);
+  color: black;
   font-size: inherit;
   font-weight: var(--body-font-weight-bold);
   margin: 0;
-  padding: 0.25em 0 0.125em;
+  padding: 2.0em 0 0.125em;
 }
 
 .nav-list {

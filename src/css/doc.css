@@ -719,9 +719,10 @@
 }
 
 .doc .sidebarblock {
-  background: var(--sidebar-background);
+  background: #fafafaf2;
   border-radius: 0.75rem;
   padding: 0.75rem 1.5rem;
+  margin: 0.5rem 0rem;
 }
 
 .doc .sidebarblock > .content > .title {
@@ -745,7 +746,8 @@
 .doc pre.highlight code,
 .doc .listingblock pre:not(.highlight),
 .doc .literalblock pre {
-  background: var(--pre-background);
+  /* background: var(--pre-background); */
+  background: #f2f2f2;
   box-shadow: inset 0 0 1.75px var(--pre-border-color);
   display: block;
   overflow-x: auto;

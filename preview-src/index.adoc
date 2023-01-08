@@ -335,3 +335,121 @@ ____
 == Fin
 
 That's all, folks!
+
+
+
+
+
+Estimated Time: 60 minutes.
+
+****
+**Objective**
+
+
+Most APIs require authentication to let you use the API. The Authentication & Authorization process allows APIs to verify your identity and decide what actions you can take using the API. In this lab, we will go through why we need API authentication, four common ways of API authentication and the Apstra API authentication.
+
+*The Lab Journey*
+
+.In this lab we are going to look at a few API authentication basics that will set the foundations for future labs. We will cover:
+	. What API Authentication is
+	. Authentication types
+		* Basic Authentication
+		* Bearer Authentication
+		* API Keys
+		* OAuth Authentication
+	. Apstra Specific Authentication
+
+****
+
+
+TIP: If you are comfortable with API authentication methods you may wish to skip to the final section (*3. Apstra Specific Authentication*)
+
+'''
+
+== What is API Authentication
+
+In the previous lab, we spoke of all the great things you can do with APIs. If a client tries to access the Apstra server, the API wants to know, Is the client really who they claim to be?
+
+For the client to prove they are allowed to access the resources of the API they typically must authenticate. Apstra treats the API as a “first class citizen” which means any actions that are available via the UI interface are also available via the API.
+
+NOTE: The Apstra UI is actually a client of the API.
+
+There are many API authentication methods available and in this lab, we are going to look at some of the most common ones.
+
+== API Auth Types
+
+=== Basic Authentication
+****
+
+The simplest way to handle authentication is by sending the username and password with every API call. You can use an HTTP header and encode the username and password. The username and password are encoded using Base64.
+
+***
+
+[source]
+----
+{“admin:password123”} is the plain text string
+“U3BvbmdlQm9iOlNxdWFdwZVBhbnRzCg” is the base64 encoded string
+----
+***
+
+In the request header, you will see a header key for Authorization is created with the word BASIC followed by the encoded bse64 string.
+
+***
+
+[source]
+----
+“Authorization: Basic U3BvbmdlQm9iOlNxdWFyZVBhbnRzCg”
+----
+***
+****
+
+=== Bearer Authentication
+
+
+[verse]
+____
+
+Bearer Authentication, also known as token authentication, is a two-step process. In this authentication model, you, the user of an API, must first acquire a token and then use the token to authenticate & authorize your future requests. The API generates a secret key that is a long, difficult-to-guess string of numbers and letters.
+
+image:API_Bearer_Auth.png[Bearer Token]
+
+Once the server returns the API token any future requests should include an authorization header value that has the token. Unlike Basic Auth, you don’t need to encode the token itself because it’s already encoded for you by the authentication server. The header field may look like the example below.
+
+'''
+
+[source]
+----
+Authorization: eyJhbGciOnR5cCI6IkpXVCJ9eyJhbGciOnR5cCI6IkpXVCJ9
+----
+
+'''
+____
+
+
+=== API Keys
+****
+Authentication using API keys is very similar to Bearer Authentication, with only one difference, the way you acquire the API key itself. Unlike tokens, API keys do not have an expiry date. Moreover, API vendors generate an API key for you.
+
+This method creates unique keys for developers and passes them alongside every request. The API generates a secret key that is a long, difficult-to-guess string of numbers and letters. It is typically passed alongside the API authorization header, the same as the bearer token above.
+****
+
+
+== Apstra Specific Authentication
+
+Apstra uses the bearer token method to authenticate and authorize API users. Once the token is generated it is valid for 24 hours and this value is not customizable. 
+
+The generation of the token is shown below - you can see the request is sent to the server that contains the username and password. The server response includes the generated API token.
+
+****
+*Request*
+image:api_login_request.png[Login Request]
+****
+
+****
+*Response*
+image:api_login_response.png[Login Response]
+****
+
+== Summary
+
+This lab looked at the reason we authenticate users of the API, multiple authentication options and the way Apstra API authentication works. The subsequent labs will look at how we use the Apstra API documentation and leverage its power.
